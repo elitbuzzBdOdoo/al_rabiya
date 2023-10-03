@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="eb_crm_lead_inherit">
+            <field name="name">crm.lead.form.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="region" placeholder="Region"/>
+                    <field name="emirates" placeholder="Emirates"/>
+                    <field name="customer_type" placeholder="Select Customer Type"
+                           options="{'no_open': True, 'no_create': True}"/>
+                    <field name="enquiry_source" placeholder="select Enquiry Source"
+                           options="{'no_open': True, 'no_create': True}"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <menuitem id="eb_crm_inherit_customer_menu"
+                  name="Customer Type"
+                  parent="crm.crm_menu_config"
+                  action="customer_type_action"/>
+
+        <menuitem id="eb_crm_inherit_enquiry_menu"
+                  name="Enquiry Source"
+                  parent="crm.crm_menu_config"
+                  action="enquiry_source_action"/>
+
+    </data>
+</odoo>

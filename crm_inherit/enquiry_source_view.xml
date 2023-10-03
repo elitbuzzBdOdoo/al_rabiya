@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="enquiry_source_form">
+        <field name="name">enquiry.source.view</field>
+        <field name="model">enquiry.source</field>
+        <field name="arch" type="xml">
+            <form string="Enquiry Source">
+                <sheet>
+                    <group string="Enquiry Source">
+                        <group>
+                            <field name="enquiry_source_id"/>
+                        </group>
+                        <group>
+                            <field name="enquiry_source" required="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="enquiry_source_tree">
+        <field name="name">enquiry.source.tree</field>
+        <field name="model">enquiry.source</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="enquiry_source_id"/>
+                <field name="enquiry_source"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="enquiry_source_action">
+        <field name="name">Enquiry Source</field>
+        <field name="res_model">enquiry.source</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

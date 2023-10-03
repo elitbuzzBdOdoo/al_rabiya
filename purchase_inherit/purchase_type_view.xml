@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="purchase_type_form">
+        <field name="name">purchase.type.view</field>
+        <field name="model">purchase.type</field>
+        <field name="arch" type="xml">
+            <form string="Purchase Type">
+                <sheet>
+                    <group string="Purchase Type">
+                        <group>
+                            <field name="purchase_id"/>
+                        </group>
+                        <group>
+                            <field name="purchase_type" required="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="purchase_type_tree">
+        <field name="name">purchase.type.tree</field>
+        <field name="model">purchase.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="purchase_id"/>
+                <field name="purchase_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="purchase_type_action">
+        <field name="name">Purchase Type</field>
+        <field name="res_model">purchase.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
