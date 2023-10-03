@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="custom_report_purchase_order" inherit_id="purchase.report_purchaseorder_document">
+            <xpath expr="//div[@class='oe_structure']" position="before">
+                <t t-if="o.purchase_type">
+                    <div>
+                        Purchase Type: <span t-field="o.purchase_type"/>
+                    </div>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</openerp>

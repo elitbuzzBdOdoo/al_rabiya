@@ -10,6 +10,8 @@
     'depends': ['crm', 'purchase'],
     'data': [
         'security/ir.model.access.csv',
+        
+        'purchase_inherit/report_purchase_view.xml',
 
         'crm_inherit/enquiry_source_view.xml',
         'crm_inherit/customer_type_view.xml',
