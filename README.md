@@ -43,7 +43,7 @@
    * Payment Term
      Payment terms in quotation should be made mandatory.
    * Invoice Confirm
-     The sales order is created then the invoicing happens, which will be done by the office team. So, Salesperson should not have access to do this.  
+     The sales order is created then the invoicing happens, which will be done by the office team. So, Salesperson should not have access to do this.
    * Credit Limit
      Sales order to have a credit limit and credit period field and if the credit amount comes near to the limit, notification to pop up and further no credit sales to be approved. Similarly, for credit period also.
    * Shipping Cost
