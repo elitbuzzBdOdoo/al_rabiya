@@ -39,12 +39,12 @@
    Sales by Item
 
   **Sales Order Warning**
-    Shows that product is unavailable (red mark), the system should not allow the salesperson to confirm the sales order. The system should show a warning that the product is not available in stock.
-    Payment Term
+   * Shows that product is unavailable (red mark), the system should not allow the salesperson to confirm the sales order. The system should show a warning that the product is not available in stock.
+   * Payment Term
      Payment terms in quotation should be made mandatory.
-    Invoice Confirm
+   * Invoice Confirm
      The sales order is created then the invoicing happens, which will be done by the office team. So, Salesperson should not have access to do this.  
-    Credit Limit
+   * Credit Limit
      Sales order to have a credit limit and credit period field and if the credit amount comes near to the limit, notification to pop up and further no credit sales to be approved. Similarly, for credit period also.
-    Shipping Cost
+   * Shipping Cost
      Shipping cost is needed to under the total cost.
