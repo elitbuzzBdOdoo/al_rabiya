@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="eb_product_template_inherit_form">
+            <field name="name">product.template.form.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="product_template_code"/>
+                    <!--                    <div>-->
+                    <!--                        <label for="product_template_code" position="inline">Product Code</label>-->
+
+                    <!--                    </div>-->
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="eb_product_template_inherit_tree">
+            <field name="name">product.template.tree.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="product_template_code"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="eb_product_template_inherit_kanban">
+            <field name="name">product.template.kanban.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_kanban_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    [<field name="product_template_code"/>]
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -7,9 +7,10 @@
     'author': 'Elitbuzz-bd Team',
     # 'website': 'Website',
     # 'license': 'License',
-    'depends': ['crm', 'purchase'],
+    'depends': ['crm', 'purchase', 'stock', 'sale'],
     'data': [
         'security/ir.model.access.csv',
+        'data/sequence.xml',
         
         'purchase_inherit/report_purchase_view.xml',
 
@@ -18,6 +19,8 @@
         'crm_inherit/inherit_crm_view.xml',
         'purchase_inherit/purchase_type_view.xml',
         'purchase_inherit/inherit_purchase_view.xml',
+        'inventory_inherit/eb_product_template_type_view.xml',
+        'sale_inherit/eb_sale_inherit_payment_term.xml',
     ],
     # 'demo': ['Demo'],
     'installable': True,

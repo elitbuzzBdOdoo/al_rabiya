@@ -1,0 +1,1 @@
+from . import eb_product_template_code
