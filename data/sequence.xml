@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
+        <record id="eb_sequence_emirates_inherit" model="ir.sequence">
+            <field name="name">Emirate</field>
+            <field name="code">emirates.model</field>
+            <field name="prefix">Emirates-0</field>
+            <field name="padding">1</field>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="eb_sequence_customer_type" model="ir.sequence">
+            <field name="name">Customer Type</field>
+            <field name="code">customer.type</field>
+            <field name="prefix">Customer Type-0</field>
+            <field name="padding">1</field>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="eb_sequence_enquiry_source" model="ir.sequence">
+            <field name="name">Enquiry Source</field>
+            <field name="code">enquiry.source</field>
+            <field name="prefix">Enquiry Source-0</field>
+            <field name="padding">1</field>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="eb_sequence_purchase_type" model="ir.sequence">
+            <field name="name">Purchase Type</field>
+            <field name="code">purchase.type</field>
+            <field name="prefix">Purchase Type-0</field>
+            <field name="padding">1</field>
+        </record>
+    </data>
+
+    <data noupdate="1">
         <record id="sequence_product_code_inherit" model="ir.sequence">
             <field name="name">Product Sequence</field>
             <field name="code">product.template</field>
-            <field name="prefix">P-0</field>
+            <field name="prefix">Product-0</field>
             <field name="padding">1</field>
         </record>
     </data>
@@ -18,30 +54,4 @@
         </record>
     </data>
 
-    <data noupdate="1">
-        <record id="eb_sequence_emirates_inherit" model="ir.sequence">
-            <field name="name">Emirate</field>
-            <field name="code">emirates.model</field>
-            <field name="prefix">E-0</field>
-            <field name="padding">1</field>
-        </record>
-    </data>
-
-    <data noupdate="1">
-        <record id="eb_sequence_customer_type" model="ir.sequence">
-            <field name="name">Customer Type</field>
-            <field name="code">customer.type</field>
-            <field name="prefix">CT-0</field>
-            <field name="padding">1</field>
-        </record>
-    </data>
-
-    <data noupdate="1">
-        <record id="eb_sequence_enquiry_source" model="ir.sequence">
-            <field name="name">Enquiry Source</field>
-            <field name="code">enquiry.source</field>
-            <field name="prefix">ES-0</field>
-            <field name="padding">1</field>
-        </record>
-    </data>
 </odoo>
