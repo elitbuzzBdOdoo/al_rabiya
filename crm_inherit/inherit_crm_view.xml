@@ -10,7 +10,7 @@
                     <group class="o_row">
                         <field name="region" placeholder="Region" nolabel="1"/>
                         <field name="emirates" placeholder="Emirates" nolabel="1"
-                           options="{'no_open': True, 'no_create': True}"/>
+                               options="{'no_open': True, 'no_create': True}"/>
                     </group>
                 </xpath>
                 <xpath expr="//field[@name='team_id']" position="after">
@@ -39,7 +39,7 @@
                   parent="eb_crm_inherit_main"
                   action="enquiry_source_action"/>
 
-        <menuitem id="eb_crm_inherit_emirates_menu"
+        <menuitem id="eb_emirates_menu"
                   name="Emirates"
                   parent="eb_crm_inherit_main"
                   action="eb_emirates_model_action"/>

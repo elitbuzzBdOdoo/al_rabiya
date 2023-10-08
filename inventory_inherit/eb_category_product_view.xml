@@ -4,17 +4,20 @@
         <field name="name">ebproduct.category.view</field>
         <field name="model">ebproduct.category</field>
         <field name="arch" type="xml">
-            <form string="Customer Type">
+            <form string="Category">
                 <sheet>
-                    <group string="Customer Type">
+                    <group string="Category Form">
                         <group>
-                            <field name="name"/>
+                            <field name="category_id"/>
                         </group>
                         <group>
                             <field name="category_name" required="1"/>
                         </group>
                     </group>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids"/>
+                </div>
             </form>
         </field>
     </record>
@@ -23,20 +26,24 @@
         <field name="name">ebproduct.category.tree</field>
         <field name="model">ebproduct.category</field>
         <field name="arch" type="xml">
-            <tree editable="top">
-                <field name="name"/>
+            <!--            <tree editable="top">-->
+            <tree string="Category List">
+                <field name="category_id"/>
                 <field name="category_name"/>
             </tree>
         </field>
     </record>
 
-    <record model="ir.actions.act_window" id="customer_type_action">
-        <field name="name">Customer Type</field>
-        <field name="res_model">customer.type</field>
+    <record model="ir.actions.act_window" id="ebproduct_category_action">
+        <field name="name">Category</field>
+        <field name="res_model">ebproduct.category</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-<!--    <menuitem id=""-->
-<!--    />-->
-
+    <menuitem id="ebproduct_category_menu"
+              name="Categories"
+              parent="stock.menu_product_in_config_stock"
+              action="ebproduct_category_action"
+              sequence="1"
+    />
 </odoo>
