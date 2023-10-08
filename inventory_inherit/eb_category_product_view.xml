@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record model="ir.ui.view" id="customer_type_form">
-        <field name="name">customer.type.view</field>
-        <field name="model">customer.type</field>
+    <record model="ir.ui.view" id="ebproduct_category_form">
+        <field name="name">ebproduct.category.view</field>
+        <field name="model">ebproduct.category</field>
         <field name="arch" type="xml">
             <form string="Customer Type">
                 <sheet>
                     <group string="Customer Type">
                         <group>
-                            <field name="customer_id"/>
+                            <field name="name"/>
                         </group>
                         <group>
-                            <field name="customer_type" required="1"/>
+                            <field name="category_name" required="1"/>
                         </group>
                     </group>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_ids"/>
-                </div>
             </form>
         </field>
     </record>
 
-    <record model="ir.ui.view" id="customer_type_tree">
-        <field name="name">customer.type.tree</field>
-        <field name="model">customer.type</field>
+    <record model="ir.ui.view" id="ebproduct_category_tree">
+        <field name="name">ebproduct.category.tree</field>
+        <field name="model">ebproduct.category</field>
         <field name="arch" type="xml">
-            <tree>
-                <field name="customer_id"/>
-                <field name="customer_type"/>
+            <tree editable="top">
+                <field name="name"/>
+                <field name="category_name"/>
             </tree>
         </field>
     </record>
@@ -38,4 +35,8 @@
         <field name="res_model">customer.type</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+<!--    <menuitem id=""-->
+<!--    />-->
+
 </odoo>

@@ -8,10 +8,6 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='name']" position="before">
                     <field name="product_template_code"/>
-                    <!--                    <div>-->
-                    <!--                        <label for="product_template_code" position="inline">Product Code</label>-->
-
-                    <!--                    </div>-->
                 </xpath>
             </field>
         </record>

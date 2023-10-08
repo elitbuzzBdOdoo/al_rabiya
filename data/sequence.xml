@@ -8,4 +8,40 @@
             <field name="padding">1</field>
         </record>
     </data>
+
+    <data noupdate="1">
+        <record id="eb_sequence_category_inherit" model="ir.sequence">
+            <field name="name">Category</field>
+            <field name="code">ebproduct.category</field>
+            <field name="prefix">Category-0</field>
+            <field name="padding">1</field>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="eb_sequence_emirates_inherit" model="ir.sequence">
+            <field name="name">Emirate</field>
+            <field name="code">emirates.model</field>
+            <field name="prefix">E-0</field>
+            <field name="padding">1</field>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="eb_sequence_customer_type" model="ir.sequence">
+            <field name="name">Customer Type</field>
+            <field name="code">customer.type</field>
+            <field name="prefix">CT-0</field>
+            <field name="padding">1</field>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="eb_sequence_enquiry_source" model="ir.sequence">
+            <field name="name">Enquiry Source</field>
+            <field name="code">enquiry.source</field>
+            <field name="prefix">ES-0</field>
+            <field name="padding">1</field>
+        </record>
+    </data>
 </odoo>

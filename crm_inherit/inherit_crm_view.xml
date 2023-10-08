@@ -6,27 +6,42 @@
             <field name="model">crm.lead</field>
             <field name="inherit_id" ref="crm.crm_lead_view_form"/>
             <field name="arch" type="xml">
+                <xpath expr="//field[@name='country_id']" position="before">
+                    <group class="o_row">
+                        <field name="region" placeholder="Region" nolabel="1"/>
+                        <field name="emirates" placeholder="Emirates" nolabel="1"
+                           options="{'no_open': True, 'no_create': True}"/>
+                    </group>
+                </xpath>
                 <xpath expr="//field[@name='team_id']" position="after">
-                    <field name="region" placeholder="Region"/>
-                    <field name="emirates" placeholder="Emirates"/>
                     <field name="customer_type" placeholder="Select Customer Type"
                            options="{'no_open': True, 'no_create': True}"/>
-                    <field name="enquiry_source" placeholder="select Enquiry Source"
+                    <field name="enquiry_source" placeholder="Select Enquiry Source"
                            options="{'no_open': True, 'no_create': True}"/>
+                </xpath>
+                <xpath expr="//field[@name='street2']" position="attributes">
+                    <attribute name="invisible">1</attribute>
                 </xpath>
             </field>
         </record>
 
-
+        <menuitem id="eb_crm_inherit_main"
+                  name="CRM Custom Menu"
+                  parent="crm.crm_menu_config"
+        />
         <menuitem id="eb_crm_inherit_customer_menu"
                   name="Customer Type"
-                  parent="crm.crm_menu_config"
+                  parent="eb_crm_inherit_main"
                   action="customer_type_action"/>
 
         <menuitem id="eb_crm_inherit_enquiry_menu"
                   name="Enquiry Source"
-                  parent="crm.crm_menu_config"
+                  parent="eb_crm_inherit_main"
                   action="enquiry_source_action"/>
 
+        <menuitem id="eb_crm_inherit_emirates_menu"
+                  name="Emirates"
+                  parent="eb_crm_inherit_main"
+                  action="eb_emirates_model_action"/>
     </data>
 </odoo>

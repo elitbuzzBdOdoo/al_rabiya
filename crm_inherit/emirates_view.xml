@@ -8,11 +8,16 @@
                 <sheet>
                     <group string="Emirates">
                         <group>
-                            <field name="name"/>
+                            <field name="emirate_code"/>
                         </group>
                         <group>
+                            <field name="emirate_name"/>
                         </group>
                     </group>
+                <div class="oe_chatter">
+<!--                    <field name="message_follower_ids" groups="base.group_user"/>-->
+                    <field name="message_ids"/>
+                </div>
                 </sheet>
             </form>
         </field>
@@ -23,12 +28,13 @@
         <field name="model">emirates.model</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
+                <field name="emirate_code"/>
+                <field name="emirate_name"/>
             </tree>
         </field>
     </record>
 
-    <record model="ir.actions.act_window" id="emirates_model_action">
+    <record model="ir.actions.act_window" id="eb_emirates_model_action">
         <field name="name">Emirates</field>
         <field name="res_model">emirates.model</field>
         <field name="view_mode">tree,form</field>
