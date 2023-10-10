@@ -31,7 +31,8 @@
         'sale_inherit/eb_sale_inherit_payment_term.xml',
         'sale_inherit/eb_res_config_views.xml',
         'sale_inherit/eb_sale_order.xml',
-
+        'sale_inherit/eb_credit_limit/res_partner_view.xml',
+        'sale_inherit/eb_credit_limit/sale_inherit_view.xml',
     ],
     # 'demo': ['Demo'],
     'installable': True,

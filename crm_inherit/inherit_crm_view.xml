@@ -39,9 +39,9 @@
                   parent="eb_crm_inherit_main"
                   action="enquiry_source_action"/>
 
-        <menuitem id="eb_emirates_menu"
-                  name="Emirates"
-                  parent="eb_crm_inherit_main"
-                  action="eb_emirates_model_action"/>
+<!--        <menuitem id="eb_emirates_menu"-->
+<!--                  name="Emirates"-->
+<!--                  parent="crm.crm_menu_config"-->
+<!--                  action="eb_emirates_model_action"/>-->
     </data>
 </odoo>
