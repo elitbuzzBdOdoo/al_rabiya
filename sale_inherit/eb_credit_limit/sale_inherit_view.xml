@@ -7,6 +7,9 @@
         <field name="arch" type="xml">
             <field name="partner_shipping_id" position="after">
                 <field name="credit_limit" widget="monetary"/>
+                <field name="total_receivable" widget="monetary"/>
+                <field name="total_payable" widget="monetary"/>
+                <field name="balance" widget="monetary"/>
                 <field name="amount_available" widget="monetary"/>
                 <field name="date"/>
             </field>
