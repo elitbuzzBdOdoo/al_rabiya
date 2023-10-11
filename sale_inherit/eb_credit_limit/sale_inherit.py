@@ -7,7 +7,7 @@ class SaleInherit(models.Model):
 
     partner_id = fields.Many2one("res.partner")
     credit_limit = fields.Float(string="Credit Limit", related="partner_id.credit_limit")
-    total_receivable = fields.Float(string="Receivable", related="partner_id.total_receivable")
+    total_receivable = fields.Float(string="Expended", related="partner_id.total_receivable")
     total_payable = fields.Float(string="Payable", related="partner_id.total_payable")
     balance = fields.Float(string="Balance", related="partner_id.balance")
     amount_available = fields.Float(string="Amount Available", related="partner_id.amount_available")

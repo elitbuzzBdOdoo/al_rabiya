@@ -10,7 +10,7 @@ class EbResPartnerInherit(models.Model):
     balance = fields.Float(String="Balance", compute="_calculate_balance", help="Receivable - Payable")
     amount_available = fields.Float(String="Amount Available", compute="_calculate_amount_available",
                                     help="Credit Limit - Balance")
-    date = fields.Datetime(string="Credit Period", track_visibility='always')
+    date = fields.Datetime(string="Credit Period", track_visibility='always', required=True)
 
     def _calculate_total_credit(self):
         self.total_receivable = self.credit
