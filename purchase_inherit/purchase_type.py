@@ -9,15 +9,7 @@ class PurchaseType(models.Model):
     _description = 'purchase type'
 
     purchase_id = fields.Char(string="Purchase Code", readonly=True)
-    purchase_type = fields.Char(string="Purchase type", required=True, track_visibility='always')
-
-    # @api.model
-    # def create(self, vals):
-    #     record = super().create(vals)
-    #     if record:
-    #         name_text = 'PT-0' + str(record.id)
-    #         record.update({'purchase_id': name_text})
-    #     return record
+    purchase_type = fields.Char(string="Purchase type", required=True, tracking=True)
 
     @api.model
     def create(self, vals):

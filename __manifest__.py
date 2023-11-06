@@ -15,7 +15,6 @@
         
         'purchase_inherit/report_purchase_view.xml',
 
-        'crm_inherit/enquiry_source_view.xml',
         'crm_inherit/customer_type_view.xml',
         'crm_inherit/inherit_crm_view.xml',
         'crm_inherit/emirates_view.xml',

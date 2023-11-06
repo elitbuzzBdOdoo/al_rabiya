@@ -9,7 +9,7 @@ class EbProductCategory(models.Model):
     _description = 'Category'
 
     category_id = fields.Char(string="Category code", readonly=True)
-    category_name = fields.Char(string="Category", tracking_visibility='always')
+    category_name = fields.Char(string="Category", tracking=True)
 
     @api.model
     def create(self, vals_list):

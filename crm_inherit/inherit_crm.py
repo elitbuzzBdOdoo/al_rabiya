@@ -7,4 +7,3 @@ class InheritCRMLead(models.Model):
     region = fields.Char("Region")
     emirates = fields.Many2one('emirates.model', string="Emirates")
     customer_type = fields.Many2one('customer.type', string="Customer Type")
-    enquiry_source = fields.Many2one('enquiry.source', string="Enquiry Source")

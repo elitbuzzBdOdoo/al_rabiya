@@ -38,4 +38,11 @@
         <field name="res_model">purchase.type</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+    <record id="purchase_type_1" model="purchase.type">
+        <field name="purchase_type">IPO</field>
+    </record>
+    <record id="purchase_type_2" model="purchase.type">
+        <field name="purchase_type">LPO</field>
+    </record>
 </odoo>
