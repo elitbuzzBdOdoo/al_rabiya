@@ -37,6 +37,14 @@
         <field name="name">Purchase Type</field>
         <field name="res_model">purchase.type</field>
         <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No "Purchase Type" found.
+            </p>
+            <p>
+                You can create a Purchase Type by clicking the create button.
+            </p>
+        </field>
     </record>
 
     <record id="purchase_type_1" model="purchase.type">

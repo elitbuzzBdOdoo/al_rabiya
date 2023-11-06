@@ -8,9 +8,6 @@
                 <sheet>
                     <group string="Emirates">
                         <group>
-                            <field name="emirate_code"/>
-                        </group>
-                        <group>
                             <field name="emirate_name"/>
                         </group>
                     </group>
@@ -28,7 +25,6 @@
         <field name="arch" type="xml">
             <tree editable="top">
                 <field name="emirates_seq" widget="handle"/>
-                <field name="emirate_code"/>
                 <field name="emirate_name"/>
                 <button name="action_emirates_form" type="object" string="Details" class="btn-secondary"/>
             </tree>
@@ -39,6 +35,14 @@
         <field name="name">Emirates</field>
         <field name="res_model">emirates.model</field>
         <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Emirate found.
+            </p>
+            <p>
+                You can create a new Emirate by clicking the Create button.
+            </p>
+        </field>
     </record>
 
     <menuitem id="eb_crm_inherit_main" name="CRM Menu" parent="crm.crm_menu_config"/>

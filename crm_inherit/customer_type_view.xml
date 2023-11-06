@@ -39,5 +39,13 @@
         <field name="name">Customer Type</field>
         <field name="res_model">customer.type</field>
         <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Customer Type found.
+            </p>
+            <p>
+                You can create a new "Customer Type" by clicking the Create button.
+            </p>
+        </field>
     </record>
 </odoo>
