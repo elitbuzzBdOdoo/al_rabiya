@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="eb_form_res_partner_inherit">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='country_id']" position="before">
+                    <group class="o_row">
+                        <field name="region" placeholder="Region" nolabel="1"/>
+                        <field name="emirates" placeholder="Emirates" nolabel="1"
+                               options="{'no_open': True, 'no_create': True}"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='street2']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="eb_tree_res_partner_inherit">
+            <field name="name">res.partner.tree.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='country_id']" position="before">
+                    <field name="region" optional="1"/>
+                    <field name="emirates"/>
+                </xpath>
+                <field name="city" position="attributes">
+                    <attribute name="optional">1</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
