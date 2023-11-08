@@ -1,1 +1,1 @@
-from . import customer_wise_product_wizard
+from . import sale_by_item_wizard

@@ -3,4 +3,4 @@ access_customer_type,customer.type,model_customer_type,base.group_user,1,1,1,1
 access_purchase_type,purchase.type,model_purchase_type,base.group_user,1,1,1,1
 access_emirates_model,emirates.model,model_emirates_model,base.group_user,1,1,1,1
 access_ebproduct_category,ebproduct.category,model_ebproduct_category,base.group_user,1,1,1,1
-access_customer_product_wizard,customer.product.wizard,model_customer_product_wizard,base.group_user,1,1,1,1
+access_sale_item_wizard,sale.item.wizard,model_sale_item_wizard,base.group_user,1,1,1,1

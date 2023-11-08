@@ -19,33 +19,33 @@
     </record>
 
 
-    <menuitem id="ar_menu_sale_analysis_report"
-              name="Sales Analysis"
+    <menuitem id="eb_menu_analysis_report"
+              name="Report Analysis"
               parent="sale.menu_sale_report"
               action="sale.action_order_report_all"
               sequence="12"
     />
-    <menuitem id="menu_pdf_report_wizard"
+    <menuitem id="eb_menu_report_wizard"
               name="Reports"
               parent="sale.menu_sale_report"
               sequence="14"
     />
-    <menuitem id="menu_customer_wise_product_wizard"
-              name="Customer Wise Product Details"
-              parent="menu_pdf_report_wizard"
-              action="action_customer_wise_product_wizard"
+    <menuitem id="menu_sale_by_item_wizard"
+              name="Sale By Item"
+              parent="eb_menu_report_wizard"
+              action="wizard_sale_by_item_action"
               sequence="16"
     />
-    <menuitem id="menu_sales_by_salesperson_wizard"
-              name="Sales By Salesperson Details"
-              parent="menu_pdf_report_wizard"
-              action="action_customer_wise_product_wizard"
-              sequence="18"
-    />
-    <menuitem id="menu_sales_by_customer_wizard"
-              name="Sales By Customer"
-              parent="menu_pdf_report_wizard"
-              action="action_customer_wise_product_wizard"
-              sequence="20"
-    />
+<!--    <menuitem id="menu_sales_by_salesperson_wizard"-->
+<!--              name="Sales By Salesperson Details"-->
+<!--              parent="menu_pdf_report_wizard"-->
+<!--              action="action_customer_wise_product_wizard"-->
+<!--              sequence="14"-->
+<!--    />-->
+<!--    <menuitem id="menu_sales_by_customer_wizard"-->
+<!--              name="Sales By Customer"-->
+<!--              parent="menu_pdf_report_wizard"-->
+<!--              action="action_customer_wise_product_wizard"-->
+<!--              sequence="16"-->
+<!--    />-->
 </odoo>

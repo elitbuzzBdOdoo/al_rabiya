@@ -14,7 +14,13 @@
 
         'data/sequence.xml',
 
-        'wizard/customer_wise_product_wizard.xml',
+        'wizard/sale_by_item_wizard.xml',
+
+        'sale_inherit/eb_sale_inherit_payment_term.xml',
+        'sale_inherit/eb_res_config_views.xml',
+        'sale_inherit/eb_sale_order.xml',
+        'sale_inherit/eb_credit_limit/res_partner_view.xml',
+        'sale_inherit/eb_credit_limit/sale_inherit_view.xml',
 
         'purchase_inherit/report_purchase_view.xml',
 
@@ -31,11 +37,8 @@
         'inventory_inherit/product_variant_cost_hide.xml',
         'inventory_inherit/eb_category_product_view.xml',
 
-        'sale_inherit/eb_sale_inherit_payment_term.xml',
-        'sale_inherit/eb_res_config_views.xml',
-        'sale_inherit/eb_sale_order.xml',
-        'sale_inherit/eb_credit_limit/res_partner_view.xml',
-        'sale_inherit/eb_credit_limit/sale_inherit_view.xml',
+        'report/sale_by_item_template.xml',
+
     ],
     # 'demo': ['Demo'],
     'installable': True,
