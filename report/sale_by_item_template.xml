@@ -11,46 +11,22 @@
 
     <template id="template_sale_by_item_report">
         <t t-call="web.html_container">
-            <div class="header" style="padding:30px">
-                <div class="row">
-                    <h4 style="text-align:center;">AL RABIYA AUTO ACCESSORIES TRADING</h4>
-                </div>
-                <div class="row">
-                    <h5 style="text-align:center; padding:5px">Sales By Item</h5>
-                </div>
-                <div class="row">
-                    <h6>
-                        <t t-if="from_date and to_date">
-                            <center>
-                                From
-                                <span t-esc="from_date"/>
-                                To
-                                <span t-esc="to_date"/>
-                            </center>
-                        </t>
-                    </h6>
-                </div>
-            </div>
-            <t class="page">
-                <div class="or_structure"/>
-                <table class="table-secondary">
-                    <thead>
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="text-center">
+                        <h2>AL RABIYA AUTO ACCESSORIES TRADING</h2>
+                    </div>
+                    <table>
                         <tr>
-                            <th style="width: 40%;">Item Name</th>
-                            <th style="width: 20%;">SKU</th>
-                            <th style="width: 15%;">Quantity Sold</th>
-                            <th style="width: 15%;">Amount</th>
-                            <th style="width: 15%;">Average Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr t-foreach="form" t-as="order">
+                            <td>Customer</td>
+                            <td>:</td>
                             <td>
-
+                                <t t-esc="form_data['partner_id'][name]"/>
                             </td>
                         </tr>
-                    </tbody>
-                </table>
+                    </table>
+                </div>
             </t>
         </t>
     </template>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <report
+            id="action_sale_by_item_report"
+            string="Sales By Item Report"
+            model="sale.item.wizard"
+            report_type="qweb-pdf"
+            file="al_rabiya.template_sale_by_item_report"
+            name="al_rabiya.template_sale_by_item_report"
+    />
+
+    <template id="template_sale_by_item_report">
+        <t t-call="web.html_container">
+            <div class="header" style="padding:30px">
+                <div class="row">
+                    <h4 style="text-align:center;">AL RABIYA AUTO ACCESSORIES TRADING</h4>
+                </div>
+                <div class="row">
+                    <h5 style="text-align:center; padding:5px">Sales By Item</h5>
+                </div>
+                <div class="row">
+                    <h6>
+                        <t t-if="from_date and to_date">
+                            <center>
+                                From
+                                <span t-esc="from_date"/>
+                                To
+                                <span t-esc="to_date"/>
+                            </center>
+                        </t>
+                    </h6>
+                </div>
+            </div>
+            <t class="page">
+                <div class="oe_structure"/>
+                <table class="table table-secondary">
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>SKU</th>
+                            <th>Quantity Sold</th>
+                            <th>Amount</th>
+                            <th>Average Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <t t-esc="partner_id"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </t>
+        </t>
+    </template>
+</odoo>
