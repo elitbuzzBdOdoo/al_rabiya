@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="wizard_sale_by_item_form" model="ir.ui.view">
-        <field name="name">Sales By Item Report</field>
-        <field name="model">sale.item.wizard</field>
+    <record id="analysis_wizard" model="ir.ui.view">
+        <field name="name">Sales By Item</field>
+        <field name="model">sale.report.analysis</field>
         <field name="arch" type="xml">
             <form>
                 <group>
@@ -14,26 +14,25 @@
                     </group>
                 </group>
                 <group>
-                    <field name="partner_id" widget="many2many_tags"/>
+                    <field name="customer_ids" widget="many2many_tags"/>
+                </group>
+                <group>
+                    <field name="product_ids" widget="many2many_tags"/>
                 </group>
                 <footer>
-                    <button name="pdf_sale_by_item_report" string="Download PDF"
-                            type="object" class="btn-success"/>
-                    <br/>
-                    <button name="excel_sale_by_item_report" string="Download XLSX"
-                            type="object" class="btn-info"/>
-                    <br/>
-                    <button string="Cancel" class="btn-danger" special="cancel"/>
+                    <button name="get_analysis_report" string="PDF Report"
+                            type="object" class="btn-primary"/>
+                    <button string="CANCEL" class="btn-warning" special="cancel"/>
                 </footer>
             </form>
         </field>
     </record>
-    <record id="wizard_sale_by_item_action" model="ir.actions.act_window">
-        <field name="name">Sales By Item Report</field>
+    <record id="sale_analysis_report" model="ir.actions.act_window">
+        <field name="name">Sale By Item</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">sale.item.wizard</field>
+        <field name="res_model">sale.report.analysis</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="wizard_sale_by_item_form"/>
+        <field name="view_id" ref="analysis_wizard"/>
         <field name="target">new</field>
     </record>
 </odoo>

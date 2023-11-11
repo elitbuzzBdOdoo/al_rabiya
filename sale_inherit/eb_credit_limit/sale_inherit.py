@@ -19,7 +19,7 @@ class SaleInherit(models.Model):
             date_order_date = fields.Datetime.to_datetime(record.date_order)
             date = fields.Datetime.to_datetime(record.date)
 
-            if date < date_order_date:
+            if str(date) < str(date_order_date):
                 msg = 'Your Credit Period Has Expired. \n Credit Period was "%s". Please Contact Administrator.' % (
                     record.date)
                 raise UserError(_('You cannot confirm the Sale Order. \n' + msg))

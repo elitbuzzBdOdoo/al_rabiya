@@ -1,32 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <report
-            id="action_sale_by_item_report"
-            string="Sales By Item Report"
-            model="sale.item.wizard"
+            id="action_sales_analysis"
+            string="Sales By Item"
+            model="sale.report.analysis"
             report_type="qweb-pdf"
-            file="al_rabiya.template_sale_by_item_report"
-            name="al_rabiya.template_sale_by_item_report"
+            file="al_rabiya.sales_analysis_view"
+            name="al_rabiya.sales_analysis_view"
     />
 
-    <template id="template_sale_by_item_report">
+    <template id="sales_analysis_view">
         <t t-call="web.html_container">
             <t t-call="web.external_layout">
-                <div class="page">
-                    <div class="oe_structure"/>
-                    <div class="text-center">
-                        <h2>AL RABIYA AUTO ACCESSORIES TRADING</h2>
-                    </div>
-                    <table>
-                        <tr>
-                            <td>Customer</td>
-                            <td>:</td>
-                            <td>
-                                <t t-esc="form_data['partner_id'][name]"/>
-                            </td>
-                        </tr>
+                <style>
+                    .table-condensed th,
+                    .table-condensed td {
+                    padding: 5px;
+                    border: none;
+                    }
+                </style>
+                <t class="header">
+                    <div class="oe_structure" style="margin-top: -50px"/>
+                    <center>
+                        <h4>AL RABIYA AUTO ACCESSORIES TRADING</h4>
+                        <h5>Sales By Item</h5>
+                    </center>
+                    <t t-if="start_date and end_date" style="padding: 10px;">
+                        <center>
+                            From
+                            <span t-esc="start_date"/>
+                            To
+                            <span t-esc="end_date"/>
+                        </center>
+                    </t>
+                </t>
+                <t class="page">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>SKU</th>
+                                <th>Quantity Sold</th>
+                                <th>Amount</th>
+                                <th>Average Price</th>
+                            </tr>
+                        </thead>
+                        <t t-foreach="partner_id" t-as="partner">
+                            <t t-set="t_total" t-value="0"/>
+                            <t t-set="t_qty" t-value="0"/>
+                            <t t-set="grand_qty" t-value="0"/>
+                            <t t-set="grand_total" t-value="0"/>
+                            <tbody>
+                                <tr t-foreach="form" t-as="order">
+                                    <t t-if="order['partner_id'] == partner['id']">
+                                        <td>
+                                            <span style="padding-left: 30px" t-esc="order['product_id']"/>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <span t-esc="order['sku']"/>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <span t-esc="order['quantity']"/>
+                                            </center>
+                                            <t t-set="t_qty" t-value="t_qty + order['quantity']"></t>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <span t-esc="'{} {:.2f}'.format(order['currency_symbol'], order['total'])"/>
+                                            </center>
+                                            <t t-set="t_total" t-value="t_total + order['total']"></t>
+                                        </td>
+                                        <td>
+                                            <t t-set="average_price" t-value="order['total'] / order['quantity']"/>
+                                            <center>
+                                                <span t-esc="'{} {:.2f}'.format(order['currency_symbol'], average_price)"/>
+                                            </center>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <t t-if="t_qty">
+                                    <tr style="font-weight:bold">
+                                        <td colspan="2">
+                                            <span t-esc="partner['name']"/>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <t t-esc="t_qty"/>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <t t-esc="'{} {:.2f}'.format(order['currency_symbol'], t_total)"/>
+                                            </center>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <!--                            <tr t-if="grand_qty" style="font-weight:bold">-->
+                            <!--                                <td colspan="2">-->
+                            <!--                                    <span>Grand Total</span>-->
+                            <!--                                </td>-->
+                            <!--                                <td>-->
+                            <!--                                    <center>-->
+                            <!--                                        <t t-esc="grand_qty"/>-->
+                            <!--                                    </center>-->
+                            <!--                                </td>-->
+                            <!--                                <td>-->
+                            <!--                                    <center>-->
+                            <!--                                        <t t-esc="'{} {:.2f}'.format(order['currency_symbol'], grand_total)"/>-->
+                            <!--                                    </center>-->
+                            <!--                                </td>-->
+                            <!--                                <td></td>-->
+                            <!--                            </tr>-->
+                        </t>
                     </table>
-                </div>
+                </t>
             </t>
         </t>
     </template>

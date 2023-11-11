@@ -9,6 +9,13 @@ class EbSaleOrderLineInherit(models.Model):
                                  help='Count of On Hand quantity')
     forecast_quantity = fields.Float(string="Forecast Quantity",
                                      help='Count of Forecast quantity')
+    product_internal_reference = fields.Char(string='SKU',
+                                             compute='_compute_product_internal_reference', store=True)
+
+    @api.depends('product_id.default_code')
+    def _compute_product_internal_reference(self):
+        for line in self:
+            line.product_internal_reference = line.product_id.default_code
 
     @api.onchange('product_id')
     def _onchange_product_id(self):
