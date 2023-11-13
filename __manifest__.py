@@ -7,7 +7,7 @@
     'author': 'Elitbuzz-bd Team',
     # 'website': 'Website',
     # 'license': 'License',
-    'depends': ['base', 'crm', 'purchase', 'stock', 'sale', 'sale_management', 'account'],
+    'depends': ['base', 'crm', 'purchase', 'stock', 'sale', 'sale_management', 'account', 'product', 'mrp'],
     'data': [
         'security/ir.model.access.csv',
         'security/security.xml',
@@ -15,6 +15,7 @@
         'data/sequence.xml',
 
         'wizard/sale_by_item_wizard.xml',
+        'wizard/stock_summary_wizard.xml',
 
         'sale_inherit/eb_sale_inherit_payment_term.xml',
         'sale_inherit/eb_res_config_views.xml',
@@ -37,7 +38,9 @@
         'inventory_inherit/product_variant_cost_hide.xml',
         'inventory_inherit/eb_category_product_view.xml',
 
+        'report/report.xml',
         'report/sale_by_item_template.xml',
+        'report/stock_summary_pdf_template_report.xml',
 
     ],
     # 'demo': ['Demo'],

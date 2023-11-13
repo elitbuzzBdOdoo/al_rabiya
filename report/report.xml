@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="stock_summary_pdf_template_action"
+                string="Stock Summary Report"
+                model="stock.summary.wizard"
+                report_type="qweb-pdf"
+                file="al_rabiya.stock_summary_pdf_template_report"
+                name="al_rabiya.stock_summary_pdf_template_report"
+        />
+    </data>
+</odoo>

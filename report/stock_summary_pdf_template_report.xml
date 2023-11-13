@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="stock_summary_pdf_template_report">
+        <t t-call="web.basic_layout">
+            <style>
+                .table-condensed th,
+                .table-condensed td {
+                padding: 15px;
+                border: none;
+                }
+            </style>
+            <div class="page">
+                <div style="position:relative;top:0;width:100%;">
+                    <center>
+                        <div>
+                            <h4>
+                                AL RABIYA AUTO ACCESSORIES TRADING
+                            </h4>
+                            <h4>
+                                Stock Summary Report
+                            </h4>
+                        </div>
+                        <div>
+                            <div>
+                                <b>Start:</b>
+                                <t t-esc="start_date"/>
+                                <b>End:</b>
+                                <t t-esc="end_date"/>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+                <br/>
+                <table class="table table-condensed">
+                    <thead style="background-color:#F5F5F5">
+                        <tr>
+<!--                            <th class="text-center">-->
+<!--                                SL-->
+<!--                            </th>-->
+                            <th class="text-center">
+                                Item Name
+                            </th>
+                            <th class="text-center">
+                                Code
+                            </th>
+                            <th class="text-center">
+                                Opening Stock
+                            </th>
+                            <th class="text-center">
+                                Quantity In
+                            </th>
+                            <th class="text-center">
+                                Quantity Out
+                            </th>
+                            <th class="text-center">
+                                Closing Stock
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-if="product_list">
+                            <t t-foreach="product_list" t-as="i">
+                                <tr>
+<!--                                    <td>-->
+<!--                                        <t t-esc="i_index +1"/>-->
+<!--                                    </td>-->
+                                    <td>
+                                        <t t-esc="i['name']"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="i['product_code']"/>
+                                    </td>
+                                    <td style="text-align:end;">
+                                        <t t-options='{"widget": "float", "precision": 0}' t-esc="i['opening_stock']"/>
+                                    </td>
+                                    <td style="text-align:end;">
+                                        <t t-options='{"widget": "float", "precision": 0}'
+                                           t-esc="i['incoming_quantity']"/>
+                                    </td>
+                                    <td style="text-align:end;">
+                                        <t t-options='{"widget": "float", "precision": 0}'
+                                           t-esc="i['outgoing_quantity']"/>
+                                    </td>
+                                    <td style="text-align:end;">
+                                        <t t-options='{"widget": "float", "precision": 0}' t-esc="i['closing_stock']"/>
+                                    </td>
+
+                                </tr>
+                            </t>
+                            <tr style="font-weight:bold;">
+                                <td colspan="2" style="text-align:center;">
+                                    TOTAL
+                                </td>
+                                <td style="text-align:end;">
+                                    <t t-options='{"widget": "float", "precision": 0}' t-esc="total_opening_stock"/>
+                                </td>
+                                <td style="text-align:end;">
+                                    <t t-options='{"widget": "float", "precision": 0}' t-esc="total_quantity_in"/>
+                                </td>
+                                <td style="text-align:end;">
+                                    <t t-options='{"widget": "float", "precision": 0}' t-esc="total_quantity_out"/>
+                                </td>
+                                <td style="text-align:end;">
+                                    <t t-options='{"widget": "float", "precision": 0}' t-esc="total_closing_stock"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-else="">
+                            <p>NO INFO</p>
+                        </t>
+                    </tbody>
+                </table>
+                <br/>
+            </div>
+        </t>
+    </template>
+</odoo>

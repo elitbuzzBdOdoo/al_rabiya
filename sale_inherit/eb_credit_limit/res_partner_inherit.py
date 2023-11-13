@@ -4,13 +4,13 @@ from odoo import fields, models
 class EbResPartnerInherit(models.Model):
     _inherit = 'res.partner'
 
-    credit_limit = fields.Float(String="Credit Limit", track_visibility='always')
-    total_receivable = fields.Float(String="Receivable", compute="_calculate_total_credit")
-    total_payable = fields.Float(String="Payable", compute="_calculate_total_debit")
-    balance = fields.Float(String="Balance", compute="_calculate_balance", help="Receivable - Payable")
-    amount_available = fields.Float(String="Amount Available", compute="_calculate_amount_available",
+    credit_limit = fields.Float(string="Credit Limit", tracking=True)
+    total_receivable = fields.Float(string="Receivable", compute="_calculate_total_credit")
+    total_payable = fields.Float(string="Payable", compute="_calculate_total_debit")
+    balance = fields.Float(string="Balance", compute="_calculate_balance", help="Receivable - Payable")
+    amount_available = fields.Float(string="Amount Available", compute="_calculate_amount_available",
                                     help="Credit Limit - Balance")
-    date = fields.Datetime(string="Credit Period", track_visibility='always', required=True)
+    date = fields.Datetime(string="Credit Period", tracking=True, required=True)
 
     def _calculate_total_credit(self):
         self.total_receivable = self.credit
