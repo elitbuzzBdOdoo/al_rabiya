@@ -10,7 +10,9 @@
                     <attribute name="readonly">1</attribute>
                 </field>
                 <xpath expr="//field[@name='barcode']" position="before">
+                    <field name="brand_name" placeholder="Select Brand"/>
                     <field name="category_name" placeholder="Select Category"/>
+                    <field name="sub_category_name" placeholder="Select Sub Category"/>
                 </xpath>
             </field>
         </record>
@@ -21,7 +23,9 @@
             <field name="inherit_id" ref="product.product_template_tree_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='name']" position="after">
+                    <field name="brand_name"/>
                     <field name="category_name"/>
+                    <field name="sub_category_name"/>
                 </xpath>
             </field>
         </record>

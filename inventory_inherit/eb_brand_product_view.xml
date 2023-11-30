@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="ebproduct_brand_form">
+        <field name="name">ebproduct.brand.view</field>
+        <field name="model">ebproduct.brand</field>
+        <field name="arch" type="xml">
+            <form string="Brand">
+                <sheet>
+                    <group string="Brand Form">
+                        <group>
+                            <field name="brand_id"/>
+                        </group>
+                        <group>
+                            <field name="brand_name" required="1"/>
+                        </group>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_ids"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="ebproduct_brand_tree">
+        <field name="name">ebproduct.brand.tree</field>
+        <field name="model">ebproduct.brand</field>
+        <field name="arch" type="xml">
+            <tree string="Brand List" editable="top">
+                <field name="brand_id"/>
+                <field name="brand_name"/>
+                <button name="action_brand_form" type="object" string="Details" class="btn-secondary"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="ebproduct_brand_action">
+        <field name="name">Brand</field>
+        <field name="res_model">ebproduct.brand</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Brand found.
+            </p>
+            <p>
+                You can create a new Brand by clicking the Create button.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="ebproduct_brand_menu"
+              name="Brand"
+              parent="stock.menu_product_in_config_stock"
+              action="ebproduct_brand_action"
+              sequence="1"
+    />
+</odoo>

@@ -2,6 +2,9 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_customer_type,customer.type,model_customer_type,base.group_user,1,1,1,1
 access_purchase_type,purchase.type,model_purchase_type,base.group_user,1,1,1,1
 access_emirates_model,emirates.model,model_emirates_model,base.group_user,1,1,1,1
+access_regions_model,regions.model,model_regions_model,base.group_user,1,1,1,1
 access_ebproduct_category,ebproduct.category,model_ebproduct_category,base.group_user,1,1,1,1
+access_ebproduct_subcategory,ebproduct.subcategory,model_ebproduct_subcategory,base.group_user,1,1,1,1
+access_ebproduct_brand,ebproduct.brand,model_ebproduct_brand,base.group_user,1,1,1,1
 access_sale_report_analysis,access.sale.report.analysis,model_sale_report_analysis,base.group_user,1,1,1,1
 access_stock_summary_wizard,stock.summary.wizard,model_stock_summary_wizard,base.group_user,1,1,1,1

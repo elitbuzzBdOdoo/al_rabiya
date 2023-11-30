@@ -11,7 +11,6 @@ class EbEmirates(models.Model):
     emirate_name = fields.Char(string="Name of the Emirate", tracking=True)
     emirates_seq = fields.Integer(string="Emirates Sequence")
 
-
     @api.model
     def create(self, vals_list):
         records = super(EbEmirates, self).create(vals_list)
@@ -29,3 +28,5 @@ class EbEmirates(models.Model):
             'res_model': 'emirates.model',
             'res_id': self.id,
         }
+
+    # _inherit =

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="regions_model_form">
+        <field name="name">regions.model.view</field>
+        <field name="model">regions.model</field>
+        <field name="arch" type="xml">
+            <form string="Regions">
+                <sheet>
+                    <h3>
+                        <field name="region_code"/>
+                    </h3>
+                    <group string="Regions">
+                        <group>
+                            <field name="region_name"/>
+                        </group>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_ids"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="regions_model_tree">
+        <field name="name">regions.model.tree</field>
+        <field name="model">regions.model</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="region_seq" widget="handle"/>
+                <field name="region_code"/>
+                <field name="region_name"/>
+                <button name="action_regions_form" type="object" string="Details" class="btn-secondary"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="eb_regions_model_action">
+        <field name="name">Regions</field>
+        <field name="res_model">regions.model</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Region found.
+            </p>
+            <p>
+                You can create a new Region by clicking the Create button.
+            </p>
+        </field>
+    </record>
+
+<!--    <menuitem id="eb_crm_inherit_main" name="CRM Menu" parent="crm.crm_menu_config"/>-->
+    <menuitem id="eb_regions_menu" name="Regions" parent="contacts.menu_localisation" action="eb_regions_model_action"/>
+</odoo>

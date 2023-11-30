@@ -8,10 +8,11 @@
                 <sheet>
                     <group string="Category Form">
                         <group>
-                            <field name="category_name" required="1"/>
+                            <field name="category_id"/>
                         </group>
                         <group>
-                            <field name="category_parent"/>
+                            <field name="category_name" required="1"/>
+<!--                            <field name="brand_name" required="1"/>-->
                         </group>
                     </group>
                     <div class="oe_chatter">
@@ -27,8 +28,9 @@
         <field name="model">ebproduct.category</field>
         <field name="arch" type="xml">
             <tree string="Category List" editable="top">
+                <field name="category_id"/>
                 <field name="category_name"/>
-                <field name="category_parent"/>
+<!--                <field name="brand_name"/>-->
                 <button name="action_category_form" type="object" string="Details" class="btn-secondary"/>
             </tree>
         </field>

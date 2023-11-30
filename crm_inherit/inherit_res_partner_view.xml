@@ -7,14 +7,23 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='country_id']" position="before">
-                    <group class="o_row">
+<!--                    <group class="o_row">-->
                         <field name="region" placeholder="Region" nolabel="1"/>
-                        <field name="emirates" placeholder="Emirates" nolabel="1"
-                               options="{'no_open': True, 'no_create': True}"/>
-                    </group>
+<!--                        <field name="emirates" placeholder="Emirates" nolabel="1"-->
+<!--                               options="{'no_open': True, 'no_create': True}"/>-->
+<!--                    </group>-->
                 </xpath>
                 <xpath expr="//field[@name='street2']" position="attributes">
                     <attribute name="invisible">1</attribute>
+                </xpath>
+                <field name="vat" position="after">
+                    <field name="customer_type" placeholder="Select Customer Type"
+                           options="{'no_open': True, 'no_create': True}"/>
+                    <field name="source_id" placeholder="Select Source"
+                           options="{'no_open': True, 'no_create': True}"/>
+                </field>
+                <xpath expr="//field[@name='state_id']" position="attributes">
+                    <attribute name="placeholder">Emirates / State</attribute>
                 </xpath>
             </field>
         </record>
@@ -26,7 +35,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='country_id']" position="before">
                     <field name="region" optional="1"/>
-                    <field name="emirates"/>
+                    <field name="state_id"/>
                 </xpath>
                 <field name="city" position="attributes">
                     <attribute name="optional">1</attribute>

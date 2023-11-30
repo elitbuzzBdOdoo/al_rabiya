@@ -8,7 +8,8 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='country_id']" position="before">
                     <group class="o_row">
-                        <field name="region" placeholder="Region" nolabel="1"/>
+                        <field name="region" placeholder="Region" nolabel="1"
+                               options="{'no_open': True, 'no_create': True}"/>
                         <field name="emirates" placeholder="Emirates" nolabel="1"
                                options="{'no_open': True, 'no_create': True}"/>
                     </group>
@@ -21,6 +22,9 @@
                 </xpath>
                 <xpath expr="//field[@name='street2']" position="attributes">
                     <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_name']" position="before">
+                    <field name="partner_id" options="{'no_quick_create': True}"/>
                 </xpath>
             </field>
         </record>

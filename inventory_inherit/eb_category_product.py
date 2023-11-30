@@ -10,7 +10,7 @@ class EbProductCategory(models.Model):
 
     category_id = fields.Char(string="Category code", readonly=True)
     category_name = fields.Char(string="Category", tracking=True)
-    category_parent = fields.Many2one('ebproduct.category', string="Parent category", tracking=True)
+    brand_name = fields.Many2one('ebproduct.brand', string="Brand Name")
 
     @api.model
     def create(self, vals_list):

@@ -10,6 +10,15 @@
     </data>
 
     <data noupdate="1">
+        <record id="eb_sequence_regions_inherit" model="ir.sequence">
+            <field name="name">Regions</field>
+            <field name="code">regions.model</field>
+            <field name="prefix">Region-0</field>
+            <field name="padding">1</field>
+        </record>
+    </data>
+
+    <data noupdate="1">
         <record id="eb_sequence_customer_type" model="ir.sequence">
             <field name="name">Customer Type</field>
             <field name="code">customer.type</field>
