@@ -7,12 +7,15 @@
             <field name="inherit_id" ref="crm.crm_lead_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='country_id']" position="before">
-                    <group class="o_row">
-                        <field name="region" placeholder="Region" nolabel="1"
-                               options="{'no_open': True, 'no_create': True}"/>
-                        <field name="emirates" placeholder="Emirates" nolabel="1"
-                               options="{'no_open': True, 'no_create': True}"/>
-                    </group>
+                    <field name="region" placeholder="Region" nolabel="1"
+                           options="{'no_open': True, 'no_create': True}"/>
+                    <!--                        <field name="emirates" placeholder="Emirates" nolabel="1"-->
+                    <!--                               options="{'no_open': True, 'no_create': True}"/>-->
+                    <!--                    </group>-->
+                </xpath>
+                <xpath expr="//field[@name='state_id']" position="attributes">
+                    <attribute name="placeholder">Emirates / State</attribute>
+                    <attribute name="options">{'no_open': True, 'no_create': True}</attribute>
                 </xpath>
                 <xpath expr="//field[@name='team_id']" position="after">
                     <field name="customer_type" placeholder="Select Customer Type"
@@ -24,7 +27,11 @@
                     <attribute name="invisible">1</attribute>
                 </xpath>
                 <xpath expr="//field[@name='partner_name']" position="before">
-                    <field name="partner_id" options="{'no_quick_create': True}"/>
+                    <field name="partner_id" options="{'no_quick_create': True}"
+                           placeholder="Customer Name"/>
+                </xpath>
+                <xpath expr="//field[@name='street2']" position="attributes">
+                    <attribute name="invisible">1</attribute>
                 </xpath>
             </field>
         </record>
@@ -39,7 +46,8 @@
                 </xpath>
                 <xpath expr="//field[@name='country_id']" position="before">
                     <field name="region" optional="1"/>
-                    <field name="emirates"/>
+                    <!--                    <field name="emirates"/>-->
+                    <field name="state_id" string="Emirates/State"/>
                 </xpath>
                 <xpath expr="//tree" position="inside">
                     <field name="customer_type"/>

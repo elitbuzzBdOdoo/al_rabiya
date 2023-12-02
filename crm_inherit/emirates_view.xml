@@ -51,27 +51,4 @@
 
 <!--    <menuitem id="eb_crm_inherit_main" name="CRM Menu" parent="crm.crm_menu_config"/>-->
 <!--    <menuitem id="eb_emirates_menu" name="Emirates" parent="eb_crm_inherit_main" action="eb_emirates_model_action"/>-->
-
-    <!-- Add data records for 'emirates.model' -->
-<!--    <record id="emirate_record_1" model="emirates.model">-->
-<!--        <field name="emirate_name">Abu Dhabi</field>-->
-<!--    </record>-->
-<!--    <record id="emirate_record_2" model="emirates.model">-->
-<!--        <field name="emirate_name">Dubai</field>-->
-<!--    </record>-->
-<!--    <record id="emirate_record_3" model="emirates.model">-->
-<!--        <field name="emirate_name">Sharjah</field>-->
-<!--    </record>-->
-<!--    <record id="emirate_record_4" model="emirates.model">-->
-<!--        <field name="emirate_name">Ajman</field>-->
-<!--    </record>-->
-<!--    <record id="emirate_record_5" model="emirates.model">-->
-<!--        <field name="emirate_name">Umm Al Quwain</field>-->
-<!--    </record>-->
-<!--    <record id="emirate_record_6" model="emirates.model">-->
-<!--        <field name="emirate_name">Ras Al Khaimah</field>-->
-<!--    </record>-->
-<!--    <record id="emirate_record_7" model="emirates.model">-->
-<!--        <field name="emirate_name">Fujairah</field>-->
-<!--    </record>-->
 </odoo>

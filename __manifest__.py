@@ -7,7 +7,7 @@
     'author': 'Elitbuzz-bd Team',
     # 'website': 'Website',
     # 'license': 'License',
-    'depends': ['base', 'crm', 'purchase', 'stock', 'sale', 'sale_management', 'account', 'product', 'mrp'],
+    'depends': ['base', 'crm', 'purchase', 'stock', 'sale', 'sale_management', 'account', 'product'],
     'data': [
         'security/ir.model.access.csv',
         'security/security.xml',

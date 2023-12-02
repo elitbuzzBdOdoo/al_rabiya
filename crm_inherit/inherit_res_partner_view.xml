@@ -8,7 +8,8 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='country_id']" position="before">
 <!--                    <group class="o_row">-->
-                        <field name="region" placeholder="Region" nolabel="1"/>
+                        <field name="region" placeholder="Region" nolabel="1"
+                               options="{'no_open': True, 'no_create': True}"/>
 <!--                        <field name="emirates" placeholder="Emirates" nolabel="1"-->
 <!--                               options="{'no_open': True, 'no_create': True}"/>-->
 <!--                    </group>-->
@@ -24,6 +25,7 @@
                 </field>
                 <xpath expr="//field[@name='state_id']" position="attributes">
                     <attribute name="placeholder">Emirates / State</attribute>
+                    <attribute name="options">{'no_open': True, 'no_create': True}</attribute>
                 </xpath>
             </field>
         </record>
@@ -35,7 +37,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='country_id']" position="before">
                     <field name="region" optional="1"/>
-                    <field name="state_id"/>
+                    <field name="state_id" string="Emirates/State"/>
                 </xpath>
                 <field name="city" position="attributes">
                     <attribute name="optional">1</attribute>
