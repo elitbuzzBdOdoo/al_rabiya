@@ -8,12 +8,19 @@
             <xpath expr="//group[@name='container_row_2']" position="inside">
                 <group name="container_row_credit">
                     <group string="Credit Limit" colspan="2">
-                        <field name="credit_limit" widget="monetary"/>
-                        <field name="date"/>
-                        <field name="total_receivable" widget="monetary"/>
-                        <field name="total_payable" widget="monetary"/>
-                        <field name="balance" widget="monetary"/>
-                        <field name="amount_available" widget="monetary"/>
+                        <field name="check_credit" confirm="are you sure"/>
+                        <field name="credit_limit" widget="monetary"
+                               attrs="{'invisible': [('check_credit', '=', False)]}"/>
+                        <!--                        <field name="date"/>-->
+                        <field name="credit_period" attrs="{'invisible': [('check_credit', '=', False)], 'required':[('check_credit', '=', True)]}"/>
+                        <field name="credit_period_date" attrs="{'invisible': [('check_credit', '=', False)]}"/>
+                        <field name="total_receivable" widget="monetary"
+                               attrs="{'invisible': [('check_credit', '=', False)]}"/>
+                        <field name="total_payable" widget="monetary"
+                               attrs="{'invisible': [('check_credit', '=', False)]}"/>
+                        <field name="balance" widget="monetary" attrs="{'invisible': [('check_credit', '=', False)]}"/>
+                        <field name="amount_available" widget="monetary"
+                               attrs="{'invisible': [('check_credit', '=', False)]}"/>
                     </group>
                 </group>
             </xpath>

@@ -5,14 +5,57 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//header" position="after">
+                <div class="alert alert-warning o_form_header" role="status"
+                     attrs="{'invisible': [('is_credit_limit_approval', '=', False)]}">
+                    <div>
+                        This customer has reached its Credit Limit of :
+                        <field name="credit_limit"/>
+                    </div>
+                </div>
+                <div class="alert alert-warning o_form_header" role="status"
+                     attrs="{'invisible': [('check_credit_period_date', '=', False)]}">
+                    <div>
+                        This customer's Credit Period has Expired
+                        <field name="credit_period_date"/>
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+                <attribute name="attrs">{'invisible': ['|',('state', 'not in', ['draft']), ('is_credit_limit_approval', '=', True), ('check_credit_period_date', '=', True)]}
+                </attribute>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="send_credit_limit_approval" string="Credit Limit Approval" type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', ('is_credit_limit_approval', '=', False), ('check_credit_period_date', '=', False), ('state', 'not in', ['draft', 'sent'])]}"
+                        groups="base.group_erp_manager"/>
+                <button name="approved_credit_limit_from_sales_manager" string="Approve" type="object"
+                        class="oe_highlight" attrs="{'invisible': [('state', 'not in', ['sales_approval'])]}"
+                        groups="sales_team.group_sale_manager"/>
+                <button name="reject_sale_order" string="Reject" type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('state', 'not in', ['sales_approval'])]}"
+                        groups="sales_team.group_sale_manager"/>
+            </xpath>
+            <xpath expr="//button[@name='action_confirm'][1]" position="attributes">
+                <attribute name="attrs">{'invisible': [('state', 'not in', ['sent', 'approved'])]}</attribute>
+            </xpath>
             <field name="partner_shipping_id" position="after">
-                <field name="credit_limit" widget="monetary"/>
-                <field name="total_receivable" widget="monetary"/>
-<!--                <field name="total_payable" widget="monetary"/>
-                <field name="balance" widget="monetary"/>
-                <field name="amount_available" widget="monetary"/>-->
-                <field name="date"/>
+                <field name="is_credit_limit_approval" invisible="1"/>
+                <field name="is_credit_limit_final_approved" invisible="1"/>
+                <field name="credit_limit" widget="monetary" attrs="{'invisible': [('check_credit', '=', False)]}"/>
+                <field name="check_credit" invisible="1"/>
+                <field name="check_credit_period_date" invisible="1"/>
+                <field name="total_receivable" widget="monetary" attrs="{'invisible': [('check_credit', '=', False)]}"/>
+                <!--                <field name="total_payable" widget="monetary"/>-->
+                <!--                <field name="balance" widget="monetary"/>-->
+                <field name="amount_available" widget="monetary" attrs="{'invisible': [('check_credit', '=', False)]}"/>
+                <field name="credit_period_date" attrs="{'invisible': [('check_credit', '=', False)]}"/>
             </field>
+            <xpath expr="//page/field[@name='order_line']" position="attributes">
+                <attribute name="attrs">{'readonly': [('state', 'in', ('done', 'cancel', 'approved', 'reject'))]}</attribute>
+            </xpath>
         </field>
     </record>
 </odoo>

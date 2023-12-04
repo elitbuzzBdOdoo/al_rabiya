@@ -8,3 +8,4 @@ access_ebproduct_subcategory,ebproduct.subcategory,model_ebproduct_subcategory,b
 access_ebproduct_brand,ebproduct.brand,model_ebproduct_brand,base.group_user,1,1,1,1
 access_sale_report_analysis,access.sale.report.analysis,model_sale_report_analysis,base.group_user,1,1,1,1
 access_stock_summary_wizard,stock.summary.wizard,model_stock_summary_wizard,base.group_user,1,1,1,1
+access_warning_wizard,warning_wizard,model_warning_wizard,base.group_user,1,1,1,1

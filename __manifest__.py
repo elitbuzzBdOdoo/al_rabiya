@@ -7,17 +7,18 @@
     'author': 'Elitbuzz-bd Team',
     # 'website': 'Website',
     # 'license': 'License',
-    'depends': ['base', 'crm', 'purchase', 'stock', 'sale', 'sale_management', 'account', 'product'],
+    'depends': ['base', 'crm', 'purchase', 'stock', 'sale', 'sale_management', 'account', 'product', 'account_accountant'],
     'data': [
         'security/ir.model.access.csv',
         'security/security.xml',
 
         'data/sequence.xml',
+        'data/credit_limit_approval_mail.xml',
 
         'wizard/sale_by_item_wizard.xml',
         'wizard/stock_summary_wizard.xml',
+        'wizard/warning_wizard.xml',
 
-        'sale_inherit/eb_sale_inherit_payment_term.xml',
         'sale_inherit/eb_res_config_views.xml',
         'sale_inherit/eb_sale_order.xml',
         'sale_inherit/eb_credit_limit/res_partner_view.xml',
@@ -44,7 +45,6 @@
         'report/report.xml',
         'report/sale_by_item_template.xml',
         'report/stock_summary_pdf_template_report.xml',
-
     ],
     'installable': True,
     'auto_install': False
