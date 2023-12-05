@@ -7,9 +7,12 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']"
                    position="after">
-                <field name="qty_available"/>
-                <field name="forecast_quantity"/>
+                <field name="qty_available" decoration-danger="qty_available == 0"/>
+                <field name="forecast_quantity" optional="1"/>
             </xpath>
+            <field name="product_template_id" position="attributes">
+                <attribute name="decoration-danger">qty_available==0</attribute>
+            </field>
             <xpath expr="//field[@name='payment_term_id']"
                    position="after">
                 <field name="onhand_check" invisible="1"/>
