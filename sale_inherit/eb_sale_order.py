@@ -11,6 +11,7 @@ class EbSaleOrderLineInherit(models.Model):
                                      help='Count of Forecast quantity')
     product_internal_reference = fields.Char(string='SKU',
                                              compute='_compute_product_internal_reference', store=True)
+    delivery_costing = fields.Char()
 
     @api.depends('product_id.default_code')
     def _compute_product_internal_reference(self):

@@ -30,8 +30,23 @@
                     <field name="partner_id" options="{'no_quick_create': True}"
                            placeholder="Customer Name"/>
                 </xpath>
-                <xpath expr="//field[@name='street2']" position="attributes">
+
+                <xpath expr="//page[@name='lead']/group/group/field[@name='partner_name']" position="before">
+                    <field name="partner_id"/>
+                </xpath>
+                <xpath expr="//page[@name='lead']/group/group/div/field[@name='street2']" position="attributes">
                     <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//page[@name='lead']/group/group/div/field[@name='state_id']" position="attributes">
+                    <attribute name="placeholder">Emirates / State</attribute>
+                    <attribute name="options">{'no_open': True, 'no_create': True}</attribute>
+                </xpath>
+                <xpath expr="//page[@name='lead']/group/group/div/field[@name='country_id']" position="before">
+                    <field name="region" placeholder="Region" nolabel="1"
+                           options="{'no_open': True, 'no_create': True}"/>
+                </xpath>
+                <xpath expr="//page[@name='lead']/group/group/field[@name='campaign_id']" position="before">
+                    <field name="customer_type"/>
                 </xpath>
             </field>
         </record>

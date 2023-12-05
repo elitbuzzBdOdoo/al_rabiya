@@ -22,13 +22,17 @@
                 </div>
             </xpath>
             <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
-                <attribute name="attrs">{'invisible': ['|',('state', 'not in', ['draft']), ('is_credit_limit_approval', '=', True), ('check_credit_period_date', '=', True)]}
+                <attribute name="attrs">{'invisible': ['|',('state', 'not in', ['draft']), ('is_credit_limit_approval',
+                    '=', True), ('check_credit_period_date', '=', True)]}
                 </attribute>
             </xpath>
             <xpath expr="//header" position="inside">
                 <button name="send_credit_limit_approval" string="Credit Limit Approval" type="object"
                         class="oe_highlight"
-                        attrs="{'invisible': ['|', ('is_credit_limit_approval', '=', False), ('check_credit_period_date', '=', False), ('state', 'not in', ['draft', 'sent'])]}"
+                        attrs="{'invisible': ['|', ('state', 'not in', ['draft', 'sent']),
+                      '&amp;', ('check_credit', '=', False),
+                           '|', ('is_credit_limit_approval', '=', False),
+                                ('check_credit_period_date', '=', False)]}"
                         groups="base.group_erp_manager"/>
                 <button name="approved_credit_limit_from_sales_manager" string="Approve" type="object"
                         class="oe_highlight" attrs="{'invisible': [('state', 'not in', ['sales_approval'])]}"
@@ -42,6 +46,7 @@
                 <attribute name="attrs">{'invisible': [('state', 'not in', ['sent', 'approved'])]}</attribute>
             </xpath>
             <field name="partner_shipping_id" position="after">
+                <field name="state"/>
                 <field name="is_credit_limit_approval" invisible="1"/>
                 <field name="is_credit_limit_final_approved" invisible="1"/>
                 <field name="credit_limit" widget="monetary" attrs="{'invisible': [('check_credit', '=', False)]}"/>
@@ -54,7 +59,8 @@
                 <field name="credit_period_date" attrs="{'invisible': [('check_credit', '=', False)]}"/>
             </field>
             <xpath expr="//page/field[@name='order_line']" position="attributes">
-                <attribute name="attrs">{'readonly': [('state', 'in', ('done', 'cancel', 'approved', 'reject'))]}</attribute>
+                <attribute name="attrs">{'readonly': [('state', 'in', ('done', 'cancel', 'approved', 'reject'))]}
+                </attribute>
             </xpath>
         </field>
     </record>
