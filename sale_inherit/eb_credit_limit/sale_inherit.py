@@ -11,7 +11,7 @@ class SaleInherit(models.Model):
             ('draft', "Quotation"),
             ('sent', "Quotation Sent"),
             ('sales_approval', "Sales Approval"),
-            # ('finance_approval', "Finance Approval"),
+            ('finance_approval', "Finance Approval"),
             ('approved', "Credit Approved"),
             ('reject', "Credit Rejected"),
             ('sale', "Sales Order"),
@@ -70,8 +70,7 @@ class SaleInherit(models.Model):
             if (self.balance + self.amount_total) > self.credit_limit and \
                     not self.is_credit_limit_final_approved:
                 difference_amount = round((self.balance + self.amount_total) - self.credit_limit, 2)
-                raise AccessDenied(_('Can not confirm the respective S.O as \
-                    Customer has crossed their Approved credit limit by %s Please seek for approval to proceed' \
+                raise AccessDenied(_('Can not confirm the respective S.O as Customer has crossed their Approved credit limit by %s Please seek for approval to proceed' \
                                      % difference_amount))
             elif partner_id.credit_limit <= total_amount and not existing_move:
                 view_id = self.env.ref('al_rabiya.view_warning_wizard_form')
@@ -105,6 +104,15 @@ class SaleInherit(models.Model):
 
     def approved_credit_limit_from_sales_manager(self):
         if self.state == 'sales_approval':
+            template_id = self.env.ref(
+                'al_rabiya.sale_order_credit_limit_approval_account_manager')
+            template_id.with_context().send_mail(self._origin.id, force_send=True)
+            msg = "Send For Credit Limit Approval To Finance Team"
+            self.message_post(body=msg)
+            self.state = 'finance_approval'
+
+    def approved_credit_limit_from_account_manager(self):
+        if self.state == 'finance_approval':
             self.state = 'approved'
             self.is_credit_limit_final_approved = True
 
@@ -127,4 +135,25 @@ class SaleInherit(models.Model):
             template_id.sudo().send()
             self.state = 'reject'
             msg = "Rejected By Sales Manager: %s" % self.env.user.name
+            self.message_post(body=msg)
+        elif self.state == 'finance_approval':
+            template_data = {
+                'subject': 'Customer credit limit rejected',
+                'body_html': """<p>
+                        Hello %s, <br/><br/>
+                        </p>
+                        <p>
+                        This email is to notify that Quotation number %s which belongs to %s 
+                        has been rejected by Finance team, <br/>
+
+                        please reach him for further clarifications</p> 
+                        """ % (self.user_id.name, self.name, self.partner_id.name),
+                'email_from': self.env.user.partner_id.email or self.env.user.email,
+                'email_to': self.user_id.email or self.user_id.partner_id.email,
+                'record_name': self.name,
+            }
+            template_id = self.env['mail.mail'].create(template_data)
+            template_id.sudo().send()
+            self.state = 'reject'
+            msg = "Rejected By Finance Team: %s" % self.env.user.name
             self.message_post(body=msg)

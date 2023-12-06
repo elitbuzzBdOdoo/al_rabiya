@@ -37,14 +37,24 @@
                 <button name="approved_credit_limit_from_sales_manager" string="Approve" type="object"
                         class="oe_highlight" attrs="{'invisible': [('state', 'not in', ['sales_approval'])]}"
                         groups="sales_team.group_sale_manager"/>
+                <button name="approved_credit_limit_from_account_manager" string="Approve" type="object"
+                        class="oe_highlight" attrs="{'invisible': [('state', 'not in', ['finance_approval'])]}"
+                        groups="account.group_account_manager"/>
                 <button name="reject_sale_order" string="Reject" type="object"
                         class="oe_highlight"
                         attrs="{'invisible': [('state', 'not in', ['sales_approval'])]}"
                         groups="sales_team.group_sale_manager"/>
+                <button name="reject_sale_order" string="Reject" type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('state', 'not in', ['finance_approval'])]}"
+                        groups="account.group_account_manager"/>
             </xpath>
-            <xpath expr="//button[@name='action_confirm'][1]" position="attributes">
-                <attribute name="attrs">{'invisible': [('state', 'not in', ['sent', 'approved'])]}</attribute>
+            <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+                <attribute name="attrs">{'invisible': ['|',('state', 'not in', ['draft']),
+                    ('is_credit_limit_approval', '=', True)]}
+                </attribute>
             </xpath>
+
             <field name="partner_shipping_id" position="after">
                 <field name="state"/>
                 <field name="is_credit_limit_approval" invisible="1"/>
@@ -58,6 +68,11 @@
                 <field name="amount_available" widget="monetary" attrs="{'invisible': [('check_credit', '=', False)]}"/>
                 <field name="credit_period_date" attrs="{'invisible': [('check_credit', '=', False)]}"/>
             </field>
+
+            <xpath expr="//button[@name='action_confirm'][1]" position="attributes">
+                <attribute name="attrs">{'invisible': [('state', 'not in', ['sent', 'approved'])]}</attribute>
+            </xpath>
+
             <xpath expr="//page/field[@name='order_line']" position="attributes">
                 <attribute name="attrs">{'readonly': [('state', 'in', ('done', 'cancel', 'approved', 'reject'))]}
                 </attribute>

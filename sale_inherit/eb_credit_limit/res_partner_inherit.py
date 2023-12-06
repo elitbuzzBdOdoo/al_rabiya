@@ -38,3 +38,8 @@ class EbResPartnerInherit(models.Model):
             raise UserError("Credit Period Can Not Be Negative")
         else:
             self.credit_period_date = False
+
+class ResCompany(models.Model):
+    _inherit = 'res.company'
+
+    accountant_email = fields.Char(string='Accountant email')
