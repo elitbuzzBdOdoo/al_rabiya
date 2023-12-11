@@ -22,37 +22,42 @@
                 </div>
             </xpath>
             <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
-                <attribute name="attrs">{'invisible': ['|',('state', 'not in', ['draft']), ('is_credit_limit_approval',
-                    '=', True), ('check_credit_period_date', '=', True)]}
+                <attribute name="attrs">{'invisible': ['|', ('state', 'not in', ['draft', 'sent']),
+                    '&amp;', ('check_credit', '=', True),
+                    '|', ('is_credit_limit_approval', '=', True),
+                    ('check_credit_period_date', '=', True)]}
                 </attribute>
             </xpath>
+
+            <!--            <xpath expr="//button[@name='action_confirm'][2]" position="attributes">-->
+            <!--                <attribute name="invisible">['|', '&amp;', ('state', 'not in', ['draft']), ('is_credit_limit_approval',-->
+            <!--                    '=', True), ('check_credit_period_date', '=', True)]-->
+            <!--                </attribute>-->
+            <!--            </xpath>-->
+
             <xpath expr="//header" position="inside">
                 <button name="send_credit_limit_approval" string="Credit Limit Approval" type="object"
                         class="oe_highlight"
                         attrs="{'invisible': ['|', ('state', 'not in', ['draft', 'sent']),
                       '&amp;', ('check_credit', '=', False),
                            '|', ('is_credit_limit_approval', '=', False),
-                                ('check_credit_period_date', '=', False)]}"
+                                ('check_credit_period_date', '=', False),
+                                ]}"
                         groups="base.group_erp_manager"/>
-                <button name="approved_credit_limit_from_sales_manager" string="Approve" type="object"
+                <button name="approved_credit_limit_from_sales_manager" string="Sales Approve" type="object"
                         class="oe_highlight" attrs="{'invisible': [('state', 'not in', ['sales_approval'])]}"
                         groups="sales_team.group_sale_manager"/>
-                <button name="approved_credit_limit_from_account_manager" string="Approve" type="object"
+                <button name="approved_credit_limit_from_account_manager" string="Finance Approve" type="object"
                         class="oe_highlight" attrs="{'invisible': [('state', 'not in', ['finance_approval'])]}"
                         groups="account.group_account_manager"/>
-                <button name="reject_sale_order" string="Reject" type="object"
-                        class="oe_highlight"
+                <button name="reject_sale_order" string="Sales Reject" type="object"
+                        class="btn-warning"
                         attrs="{'invisible': [('state', 'not in', ['sales_approval'])]}"
                         groups="sales_team.group_sale_manager"/>
-                <button name="reject_sale_order" string="Reject" type="object"
-                        class="oe_highlight"
+                <button name="reject_sale_order" string="Finance Reject" type="object"
+                        class="btn-warning"
                         attrs="{'invisible': [('state', 'not in', ['finance_approval'])]}"
                         groups="account.group_account_manager"/>
-            </xpath>
-            <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
-                <attribute name="attrs">{'invisible': ['|',('state', 'not in', ['draft']),
-                    ('is_credit_limit_approval', '=', True)]}
-                </attribute>
             </xpath>
 
             <field name="partner_shipping_id" position="after">

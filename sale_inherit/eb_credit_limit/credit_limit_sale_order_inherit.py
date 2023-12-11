@@ -1,9 +1,8 @@
 from odoo import fields, models, api, _
-
 from odoo.exceptions import AccessDenied
 
 
-class SaleInherit(models.Model):
+class CreditLimitSaleInherit(models.Model):
     _inherit = "sale.order"
 
     state = fields.Selection(
@@ -44,8 +43,6 @@ class SaleInherit(models.Model):
     def _compute_customer_credit_limit(self):
         self.is_credit_limit_approval = False
         if self.check_credit == True:
-            # date_order_date = fields.Date.to_datetime(self.date_order)
-            # credit_period_date = fields.Date.to_datetime(self.credit_period_date)
             if str(self.credit_period_date) < str(self.date_order):
                 self.check_credit_period_date = True
             else:
@@ -70,8 +67,9 @@ class SaleInherit(models.Model):
             if (self.balance + self.amount_total) > self.credit_limit and \
                     not self.is_credit_limit_final_approved:
                 difference_amount = round((self.balance + self.amount_total) - self.credit_limit, 2)
-                raise AccessDenied(_('Can not confirm the respective S.O as Customer has crossed their Approved credit limit by %s Please seek for approval to proceed' \
-                                     % difference_amount))
+                raise AccessDenied(
+                    _('Can not confirm the respective S.O as Customer has crossed their Approved credit limit by %s Please seek for approval to proceed' \
+                      % difference_amount))
             elif partner_id.credit_limit <= total_amount and not existing_move:
                 view_id = self.env.ref('al_rabiya.view_warning_wizard_form')
                 context = dict(self.env.context or {})
@@ -90,7 +88,7 @@ class SaleInherit(models.Model):
                     }
             elif partner_id.credit_limit <= total_amount and not self.is_credit_limit_final_approved:
                 raise AccessDenied(_('Customer credit limit exceeded.'))
-        res = super(SaleInherit, self).action_confirm()
+        res = super(CreditLimitSaleInherit, self).action_confirm()
         return res
 
     def send_credit_limit_approval(self):
@@ -121,12 +119,12 @@ class SaleInherit(models.Model):
             template_data = {
                 'subject': 'Customer credit limit/credit period request rejected',
                 'body_html': """<p>
-                        Hello %s, <br/><br/>
-                        </p>
-                        <p>
-                        This email is to notify that Quotation number %s which belongs to %s 
-                        has been rejected by %s (Customer Account Manager), <br/> please reach him for further clarifications </p>
-                        """ % (self.user_id.name, self.name, self.partner_id.name, self.env.user.name),
+                            Hello %s, <br/><br/>
+                            </p>
+                            <p>
+                            This email is to notify that Quotation number %s which belongs to %s 
+                            has been rejected by %s (Customer Account Manager), <br/> please reach him for further clarifications </p>
+                            """ % (self.user_id.name, self.name, self.partner_id.name, self.env.user.name),
                 'email_from': self.env.user.partner_id.email or self.env.user.email,
                 'email_to': self.user_id.email or self.user_id.partner_id.email,
                 'record_name': self.name,
@@ -140,14 +138,14 @@ class SaleInherit(models.Model):
             template_data = {
                 'subject': 'Customer credit limit rejected',
                 'body_html': """<p>
-                        Hello %s, <br/><br/>
-                        </p>
-                        <p>
-                        This email is to notify that Quotation number %s which belongs to %s 
-                        has been rejected by Finance team, <br/>
+                            Hello %s, <br/><br/>
+                            </p>
+                            <p>
+                            This email is to notify that Quotation number %s which belongs to %s 
+                            has been rejected by Finance team, <br/>
 
-                        please reach him for further clarifications</p> 
-                        """ % (self.user_id.name, self.name, self.partner_id.name),
+                            please reach him for further clarifications</p> 
+                            """ % (self.user_id.name, self.name, self.partner_id.name),
                 'email_from': self.env.user.partner_id.email or self.env.user.email,
                 'email_to': self.user_id.email or self.user_id.partner_id.email,
                 'record_name': self.name,

@@ -21,8 +21,8 @@
 
         'sale_inherit/eb_res_config_views.xml',
         'sale_inherit/eb_sale_order.xml',
-        'sale_inherit/eb_credit_limit/res_partner_view.xml',
-        'sale_inherit/eb_credit_limit/sale_inherit_view.xml',
+        'sale_inherit/eb_credit_limit/credit_limit_res_partner_view.xml',
+        'sale_inherit/eb_credit_limit/credit_limit_sale_order_view.xml',
 
         'purchase_inherit/report_purchase_view.xml',
 
